@@ -1,6 +1,7 @@
-GameOfLifeCSharp
-================
-C# implementation of Conway's Game of Life with the following constraints:
+### C# implementation of Conway's Game of Life 
+
+Implemented with the following constraints:
+
 1. No if statements or switches (branching)
 2. No loops
 3. Small methods (less than 5 lines)
