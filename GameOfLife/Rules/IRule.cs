@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 
 namespace Conway.GameOfLife
 {
 	public interface IRule
 	{
-		void Apply();
+		IEnumerable<Cell> Apply(IEnumerable<Cell> cells);
 	}
 }
 

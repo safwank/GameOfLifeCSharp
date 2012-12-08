@@ -4,11 +4,14 @@ namespace Conway.GameOfLife
 {
 	public class Cell
 	{
-		public Cell ()
+		public Cell(Position position, State state)
 		{
+			Position = position;
+			State = state;
 		}
 
-		public IState State { get; set; }
+		public Position Position { get; private set; }
+		public State State { get; private set; }
 	}
 }
 

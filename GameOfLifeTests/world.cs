@@ -9,24 +9,51 @@ namespace Conway.GameOfLife.Tests
 	public class world
 	{
 		[Test()]
-		public void should_kill_any_live_cell_with_fewer_than_two_live_neighbors()
+		public void should_return_a_cell_at_a_specific_position_if_it_exits()
+		{
+			var cells = new List<Cell> { new Cell(Position.At(6, 6), State.Alive) };
+			var world = new World(cells, null);
+
+			var cell = world.GetCellAt(Position.At(6, 6));
+
+			cell.Should().NotBeNull();
+		}
+
+		[Test()]
+		public void should_return_null_if_a_specific_position_is_empty()
 		{
 			var cells = new List<Cell>();
-			var currentWorld = new World(cells);
+			var world = new World(cells, null);
+			
+			var cell = world.GetCellAt(Position.At(6, 6));
+			
+			cell.Should().BeNull();
+		}
+
+		[Test()]
+		public void should_kill_any_live_cell_with_fewer_than_two_live_neighbors ()
+		{
+			var cells = new List<Cell>
+						{
+							new Cell(Position.At(6,6), State.Alive),
+							new Cell(Position.At(6,7), State.Alive)
+						};
+			var rules = new List<IRule> { new CellsWithLessThanTwoLiveNeighborsDie() };
+			var currentWorld = new World (cells, rules);
 
 			var newWorld = currentWorld.Tick();
 
-			var cell = newWorld.GetCellAt(new Position(6, 6));
-			cell.State.ShouldBeEquivalentTo(DeadState.Value);
+			newWorld.GetCellAt(Position.At(6, 6)).State.Should().Be(State.Dead);
+			newWorld.GetCellAt(Position.At(6, 7)).State.Should().Be(State.Dead);
 		}
 
 		[Test()]
-		public void should_keep_any_live_cell_with_two_or_three_life_neighbors()
+		public void should_keep_any_live_cell_with_two_or_three_life_neighbors ()
 		{
 		}
 
 		[Test()]
-		public void should_kill_any_live_cell_with_more_than_three_live_neighbors()
+		public void should_kill_any_live_cell_with_more_than_three_live_neighbors ()
 		{
 		}
 

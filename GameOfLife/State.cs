@@ -2,9 +2,11 @@ using System;
 
 namespace Conway.GameOfLife
 {
-	public interface IState
+	public enum State
 	{
+		Alive,
+		Dead,
+		Zombie
 	}
-
 }
 
