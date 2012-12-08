@@ -6,10 +6,10 @@ using FluentAssertions;
 namespace Conway.GameOfLife.Tests
 {
 	[TestFixture()]
-	public class WorldTests
+	public class world
 	{
 		[Test()]
-		public void Should_Kill_Any_Live_Cell_With_Fewer_Than_Two_Live_Neighbors()
+		public void should_kill_any_live_cell_with_fewer_than_two_live_neighbors()
 		{
 			var cells = new List<Cell>();
 			var currentWorld = new World(cells);
@@ -21,17 +21,17 @@ namespace Conway.GameOfLife.Tests
 		}
 
 		[Test()]
-		public void Should_Keep_Any_Live_Cell_With_Two_Or_Three_Life_Neighbors()
+		public void should_keep_any_live_cell_with_two_or_three_life_neighbors()
 		{
 		}
 
 		[Test()]
-		public void Should_Kill_Any_Live_Cell_With_More_Than_Three_Live_Neighbors()
+		public void should_kill_any_live_cell_with_more_than_three_live_neighbors()
 		{
 		}
 
 		[Test()]
-		public void Should_Reincarnate_Any_Dead_Cell_With_Exactly_Three_Live_Neighbors ()
+		public void should_reincarnate_any_dead_cell_with_exactly_three_live_neighbors ()
 		{
 		}
 	}

@@ -39,7 +39,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="WorldTests.cs" />
+    <Compile Include="world.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife\GameOfLife.csproj">
