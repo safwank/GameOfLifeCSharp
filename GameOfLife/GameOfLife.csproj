@@ -45,6 +45,7 @@
     <Compile Include="Rules\LiveCellsWithTwoOrThreeLiveNeighborsLiveOn.cs" />
     <Compile Include="Rules\LiveCellsWithLessThanTwoLiveNeighborsDie.cs" />
     <Compile Include="Rules\LiveCellsWithMoreThanThreeLiveNeighborsDie.cs" />
+    <Compile Include="Rules\DeadCellsWithThreeLiveNeighborsBecomeAlive.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
