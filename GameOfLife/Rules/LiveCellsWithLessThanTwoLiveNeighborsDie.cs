@@ -4,10 +4,7 @@ using System.Linq;
 
 namespace Conway.GameOfLife
 {
-	/// <summary>
-	/// Any live cell with fewer than two live neighbours dies, as if caused by under-population.
-	/// </summary>
-	public class CellsWithLessThanTwoLiveNeighborsDie : IRule
+	public class LiveCellsWithLessThanTwoLiveNeighborsDie : IRule
 	{
 		public IEnumerable<Cell> Apply (IEnumerable<Cell> cells)
 		{

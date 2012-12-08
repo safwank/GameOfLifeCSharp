@@ -38,7 +38,7 @@ namespace Conway.GameOfLife.Tests
 							new Cell(Position.At(6,6), State.Alive),
 							new Cell(Position.At(6,7), State.Alive)
 						};
-			var rules = new List<IRule> { new CellsWithLessThanTwoLiveNeighborsDie() };
+			var rules = new List<IRule> { new LiveCellsWithLessThanTwoLiveNeighborsDie() };
 			var currentWorld = new World (cells, rules);
 
 			var newWorld = currentWorld.Tick();
@@ -50,6 +50,20 @@ namespace Conway.GameOfLife.Tests
 		[Test()]
 		public void should_keep_any_live_cell_with_two_or_three_life_neighbors ()
 		{
+			var cells = new List<Cell>
+			{
+				new Cell(Position.At(6,6), State.Alive),
+				new Cell(Position.At(6,7), State.Alive),
+				new Cell(Position.At(7,6), State.Alive),
+			};
+			var rules = new List<IRule> { new LiveCellsWithTwoOrThreeLiveNeighborsLiveOn() };
+			var currentWorld = new World (cells, rules);
+			
+			var newWorld = currentWorld.Tick();
+			
+			newWorld.GetCellAt(Position.At(6, 6)).State.Should().Be(State.Alive);
+			newWorld.GetCellAt(Position.At(6, 7)).State.Should().Be(State.Alive);
+			newWorld.GetCellAt(Position.At(7, 6)).State.Should().Be(State.Alive);
 		}
 
 		[Test()]

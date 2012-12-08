@@ -42,7 +42,8 @@
     <Compile Include="World.cs" />
     <Compile Include="Rules\IRule.cs" />
     <Compile Include="State.cs" />
-    <Compile Include="Rules\CellsWithLessThanTwoLiveNeighborsDie.cs" />
+    <Compile Include="Rules\LiveCellsWithTwoOrThreeLiveNeighborsLiveOn.cs" />
+    <Compile Include="Rules\LiveCellsWithLessThanTwoLiveNeighborsDie.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
