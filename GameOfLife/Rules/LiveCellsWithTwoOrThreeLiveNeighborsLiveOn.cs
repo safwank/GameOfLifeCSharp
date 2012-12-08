@@ -18,7 +18,7 @@ namespace Conway.GameOfLife
 							 where !liveCells.Any(deadCell => deadCell.Position.Equals(cell.Position))
 							 select new Cell(cell.Position, cell.State);
 			return liveCells.Concat(otherCells);
-		}		
+		}
 	}
 }
 
